@@ -98,11 +98,8 @@ const commands = [
     'npm run dev --host 0.0.0.0',
     'git push origin feature/new-component',
     'node server.js --port=3000',
-    'psql -U postgres -d portfolio -c "SELECT * FROM users"',
-    'mongosh --eval "db.projects.find({})"',
     'sass src/styles.scss dist/styles.css',
     'code . --goto package.json:15',
-    'yarn build && yarn deploy'
 ];
 
 let commandIndex = 0;

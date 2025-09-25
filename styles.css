@@ -833,9 +833,19 @@ section {
 
 .form-line {
     display: flex;
-    align-items: center;
-    gap: 1rem;
+    align-items: flex-start;
+    gap: 0.5rem;
     flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.form-line:has(textarea) {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.form-line:has(textarea) .command {
+    margin-bottom: 0.5rem;
 }
 
 .form-line input,
@@ -846,9 +856,10 @@ section {
     border-radius: 5px;
     padding: 0.8rem;
     color: var(--primary-green);
-    font-family: var(--font-code);
+    font-family: 'Courier New', var(--font-code);
     transition: var(--transition);
-    min-width: 200px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .form-line input:focus,
@@ -859,10 +870,9 @@ section {
 }
 
 .form-line textarea {
-    width: 100%;
-    min-height: 120px;
+    min-height: 100px;
     resize: vertical;
-    margin-top: 1rem;
+    font-family: 'Courier New', var(--font-code);
 }
 
 .execute-btn {
@@ -969,19 +979,39 @@ section {
 .footer-links {
     display: flex;
     gap: 2rem;
+    flex-wrap: wrap;
 }
 
 .footer-links a {
     color: var(--cyber-blue);
     text-decoration: none;
-    font-family: var(--font-code);
-    font-weight: 600;
     transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: rgba(0, 255, 65, 0.05);
 }
 
 .footer-links a:hover {
     color: var(--primary-green);
-    text-shadow: 0 0 10px var(--primary-green);
+    border-color: var(--primary-green);
+    background: rgba(0, 255, 65, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 20px rgba(0, 255, 65, 0.3);
+}
+
+.social-icon {
+    width: 28px;
+    height: 28px;
+    transition: var(--transition);
+}
+
+.footer-links a:hover .social-icon {
+    filter: drop-shadow(0 0 8px var(--primary-green));
+    transform: scale(1.15);
 }
 
 /* ANIMATIONS */
@@ -1108,11 +1138,23 @@ section {
     .form-line {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .form-line .prompt,
+    .form-line .command {
+        font-size: 0.9rem;
     }
 
     .footer-content {
         flex-direction: column;
         text-align: center;
+        gap: 2rem;
+    }
+
+    .footer-links {
+        justify-content: center;
+        gap: 1.5rem;
     }
 }
 
@@ -1159,5 +1201,19 @@ section {
 
     .status-text {
         font-size: 0.6rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    .footer-links a {
+        padding: 0.6rem;
+    }
+
+    .social-icon {
+        width: 24px;
+        height: 24px;
     }
 }
