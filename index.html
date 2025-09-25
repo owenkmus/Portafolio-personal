@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEV.EXE | Software Developer Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Matrix Rain Background -->
+    <canvas id="matrix-canvas"></canvas>
+    
+    <!-- Cursor Trail -->
+    <div class="cursor-trail"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav">
+            <div class="logo">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text">CHRIS-DEV</span>
+                <span class="logo-bracket">]</span>
+                <div class="logo-cursor">_</div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio" data-text="INICIO">INICIO</a></li>
+                <li><a href="#about" data-text="ABOUT">ABOUT</a></li>
+                <li><a href="#skills" data-text="SKILLS">SKILLS</a></li>
+                <li><a href="#projects" data-text="PROJECTS">PROJECTS</a></li>
+                <li><a href="#contact" data-text="CONTACT">CONTACT</a></li>
+            </ul>
+            <div class="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="terminal-status">
+                        <div class="status-indicator">
+                            <span class="status-light"></span>
+                            <span class="status-text">SYSTEM_ONLINE</span>
+                        </div>
+                        <div class="terminal-info">
+                            <span class="terminal-version">v2.0.1</span>
+                            <span class="terminal-separator">|</span>
+                            <span class="terminal-user">ROOT</span>
+                        </div>
+                    </div>
+                    <div class="terminal-title">
+                        <span class="title-bracket">[</span>
+                        <span class="title-text">DEVELOPER.EXE</span>
+                        <span class="title-bracket">]</span>
+                        <div class="terminal-cursor">_</div>
+                    </div>
+                    <div class="terminal-controls">
+                        <div class="control-group">
+                            <span class="control-btn minimize">◦</span>
+                            <span class="control-btn maximize">□</span>
+                            <span class="control-btn close">✕</span>
+                        </div>
+                        <div class="system-stats">
+                            <span class="stat-item">CPU: 85%</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-item">MEM: 76%</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="terminal-body">
+                    <div class="code-line">
+                        <span class="prompt">C:\Users\Developer></span>
+                        <span class="command">whoami</span>
+                    </div>
+                    <div class="output">
+                        <div class="name-display">
+                            <span class="glitch" data-text="DESKTOP-DEV01\Developer">chris-dev\chris</span>
+                        </div>
+                    </div>
+                    <div class="code-line">
+                        <span class="prompt">C:\Users\Developer></span>
+                        <span class="command">dir C:\Skills</span>
+                    </div>
+                    <div class="output skills-output">
+                        <div>Directorio de C:\Skills</div>
+                        <div>TypeScript.ts&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Angular.exe&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CSharp.dll&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Node.exe</div>
+                    </div>
+                    <div class="code-line typing">
+                        <span class="prompt">C:\Users\Developer></span>
+                        <span class="command typing-text"></span>
+                        <span class="cursor-blink">_</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn-cyber btn-primary">
+                    <span>INICIALIZAR_PROYECTOS()</span>
+                    <div class="btn-cyber-border"></div>
+                </a>
+                <a href="#contact" class="btn-cyber btn-secondary">
+                    <span>ESTABLECER_CONTACTO()</span>
+                    <div class="btn-cyber-border"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>
+                ABOUT_ME
+                <span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="about-content">
+                <div class="about-avatar">
+                    <div class="avatar-container">
+                        <div class="avatar-image">
+                            <div class="avatar-scan"></div>
+                            <div class="avatar-emoji">👨‍💻</div>
+                        </div>
+                        <div class="avatar-data">
+                            <div class="data-line">STATUS: <span class="status-online">ONLINE</span></div>
+                            <div class="data-line">MODE: <span class="status-coding">CODING</span></div>
+                            <div class="data-line">LEVEL: <span class="status-senior">SENIOR</span></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-info">
+                    <div class="info-panel">
+                        <div class="panel-header">
+                            <span>developer_profile.json</span>
+                            <div class="file-actions">
+                                <span class="action">●</span>
+                                <span class="action">□</span>
+                                <span class="action">✕</span>
+                            </div>
+                        </div>
+                        <div class="panel-content">
+                            <div class="json-code">
+                                <span class="json-bracket">{</span>
+                                <div class="json-prop">"nombre": <span class="json-string">"Cristian Sosa"</span>,</div>
+                                <div class="json-prop">"rol": <span class="json-string">"Senior Developer | Software, App & VideoGame Developer"</span>,</div>
+                                <div class="json-prop">"experiencia": <span class="json-number">+10</span>,</div>
+                                <div class="json-prop">"descripcion": <span class="json-string">"Profesional en el desarrollo de software y soluciones tecnológicas a la medida, apoyo a empresas y organizaciones en sus procesos de transformación digital, aportando valor a través de la consultoría en TI y el diseño de experiencia de usuario (UX), garantizando calidad, seguridad y escalabilidad en cada proyecto."</span>,</div>
+                                <div class="json-prop">"pasiones": <span class="json-array">["AI/ML", "Open Source", "Clean Code"]</span></div>
+                                <span class="json-bracket">}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>
+                TECH_STACK
+                <span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3 class="category-title">FRONTEND</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="95">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                            </div>
+                            <span class="skill-name">HTML5</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                            </div>
+                            <span class="skill-name">CSS3</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="88">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" />
+                            </div>
+                            <span class="skill-name">TypeScript</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="85">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" alt="Angular" />
+                            </div>
+                            <span class="skill-name">Angular</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">BACKEND</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="87">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" />
+                            </div>
+                            <span class="skill-name">Node.js</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="83">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg" alt="C#" />
+                            </div>
+                            <span class="skill-name">C#</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">DATABASES</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="80">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+                            </div>
+                            <span class="skill-name">MySQL</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="75">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL Server" />
+                            </div>
+                            <span class="skill-name">SQL Server</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3 class="category-title">CLOUD & TOOLS</h3>
+                    <div class="skill-items">
+                        <div class="skill-item" data-skill="82">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" alt="AWS" />
+                            </div>
+                            <span class="skill-name">AWS</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item" data-skill="90">
+                            <div class="skill-logo">
+                                <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+                            </div>
+                            <span class="skill-name">GitHub</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>
+                PROJECTS
+                <span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span>ACTIVE</span>
+                        </div>
+                        <div class="project-id">#001</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">NEURAL_COMMERCE.exe</h3>
+                        <p class="project-desc">E-commerce inteligente con IA para recomendaciones personalizadas y análisis predictivo de ventas.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">TensorFlow</span>
+                            <span class="tech-tag">MongoDB</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="project-link">
+                            <span>DEMO</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                        <a href="#" class="project-link">
+                            <span>CODE</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot active"></span>
+                            <span>ACTIVE</span>
+                        </div>
+                        <div class="project-id">#002</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">CRYPTO_TRACKER.exe</h3>
+                        <p class="project-desc">Dashboard en tiempo real para tracking de criptomonedas con alertas automáticas y análisis técnico.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Redis</span>
+                            <span class="tech-tag">WebSocket</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="project-link">
+                            <span>DEMO</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                        <a href="#" class="project-link">
+                            <span>CODE</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-header">
+                        <div class="project-status">
+                            <span class="status-dot completed"></span>
+                            <span>COMPLETED</span>
+                        </div>
+                        <div class="project-id">#003</div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">CODE_ANALYZER.exe</h3>
+                        <p class="project-desc">Herramienta de análisis estático de código con métricas de calidad y detección de vulnerabilidades.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">FastAPI</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
+                    <div class="project-actions">
+                        <a href="#" class="project-link">
+                            <span>DEMO</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                        <a href="#" class="project-link">
+                            <span>CODE</span>
+                            <div class="link-arrow">→</div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">
+                <span class="title-bracket">&lt;</span>
+                CONTACT
+                <span class="title-bracket">/&gt;</span>
+            </h2>
+            <div class="contact-content">
+                <div class="contact-terminal">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <div class="terminal-status">
+                                <div class="status-indicator">
+                                    <span class="status-light"></span>
+                                    <span class="status-text">CONTACT_MODULE</span>
+                                </div>
+                                <div class="terminal-info">
+                                    <span class="terminal-version">v2.0.1</span>
+                                    <span class="terminal-separator">|</span>
+                                    <span class="terminal-user">GUEST</span>
+                                </div>
+                            </div>
+                            <div class="terminal-title">
+                                <span class="title-bracket">[</span>
+                                <span class="title-text">CONTACT.EXE</span>
+                                <span class="title-bracket">]</span>
+                                <div class="terminal-cursor">_</div>
+                            </div>
+                            <div class="terminal-controls">
+                                <div class="control-group">
+                                    <span class="control-btn minimize">◦</span>
+                                    <span class="control-btn maximize">□</span>
+                                    <span class="control-btn close">✕</span>
+                                </div>
+                                <div class="system-stats">
+                                    <span class="stat-item">SSL: ON</span>
+                                    <span class="stat-separator">|</span>
+                                    <span class="stat-item">ENC: 256</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="terminal-body">
+                            <form class="contact-form" id="contact-form">
+                                <div class="form-line">
+                                    <span class="prompt">$</span>
+                                    <span class="command">setName</span>
+                                    <input type="text" name="name" placeholder="[TU_NOMBRE]" required>
+                                </div>
+                                <div class="form-line">
+                                    <span class="prompt">$</span>
+                                    <span class="command">setEmail</span>
+                                    <input type="email" name="email" placeholder="[TU_EMAIL]" required>
+                                </div>
+                                <div class="form-line">
+                                    <span class="prompt">$</span>
+                                    <span class="command">setSubject</span>
+                                    <input type="text" name="subject" placeholder="[ASUNTO]" required>
+                                </div>
+                                <div class="form-line">
+                                    <span class="prompt">$</span>
+                                    <span class="command">writeMessage</span>
+                                    <textarea name="message" placeholder="[ESCRIBE_TU_MENSAJE_AQUI]" required></textarea>
+                                </div>
+                                <div class="form-line">
+                                    <button type="submit" class="execute-btn">
+                                        <span class="prompt">$</span>
+                                        <span class="command">execute --send-message</span>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-info">
+                    <div class="info-card">
+                        <div class="card-header">
+                            <span class="card-icon">📧</span>
+                            <span class="card-title">EMAIL.exe</span>
+                        </div>
+                        <div class="card-content">
+                            <a href="mailto:tu@email.com">tu@email.com</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">
+                            <span class="card-icon">💼</span>
+                            <span class="card-title">LINKEDIN.exe</span>
+                        </div>
+                        <div class="card-content">
+                            <a href="#">/in/tu-perfil</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">
+                            <span class="card-icon">🐱</span>
+                            <span class="card-title">GITHUB.exe</span>
+                        </div>
+                        <div class="card-content">
+                            <a href="#">github.com/tuusuario</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="card-header">
+                            <span class="card-icon">📍</span>
+                            <span class="card-title">LOCATION.exe</span>
+                        </div>
+                        <div class="card-content">
+                            <span>Bogotá, Colombia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-text">
+                    <span class="prompt">$</span>
+                    <span>2024 DEV.EXE --version 2.0.1</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#">GITHUB</a>
+                    <a href="#">LINKEDIN</a>
+                    <a href="#">TWITTER</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+
