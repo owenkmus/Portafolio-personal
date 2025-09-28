@@ -198,13 +198,37 @@ window.addEventListener('scroll', () => {
     lastScrollY = window.scrollY;
 });
 
+// CONTACT MODAL
+const contactModal = document.getElementById('contact-modal');
+const openModalBtn = document.getElementById('open-contact-modal');
+const closeModalBtn = document.getElementById('close-contact-modal');
+
+if (openModalBtn) {
+    openModalBtn.addEventListener('click', () => {
+        contactModal.classList.add('active');
+    });
+}
+
+if (closeModalBtn) {
+    closeModalBtn.addEventListener('click', () => {
+        contactModal.classList.remove('active');
+    });
+}
+
+// Close modal if overlay is clicked
+contactModal.addEventListener('click', (e) => {
+    if (e.target === contactModal) {
+        contactModal.classList.remove('active');
+    }
+});
+
 // CONTACT FORM
 const contactForm = document.getElementById('contact-form');
 
 contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    const terminalBody = contactForm.closest('.terminal-body');
+    const terminalBody = document.getElementById('modal-terminal-body');
     const submitButton = contactForm.querySelector('.execute-btn');
     
     // Show loading message
@@ -234,6 +258,10 @@ contactForm.addEventListener('submit', async function(e) {
     // Disable submit button
     submitButton.disabled = true;
     submitButton.style.opacity = '0.6';
+
+    // Hide form and direct links during submission
+    contactForm.style.display = 'none';
+    document.querySelector('.modal-contact-links').style.display = 'none';
     
     try {
         // Send form data to Formspree
@@ -324,6 +352,12 @@ contactForm.addEventListener('submit', async function(e) {
         // Remove output after 8 seconds
         setTimeout(() => {
             outputDiv.remove();
+            // Show form and links again
+            contactForm.style.display = 'block';
+            document.querySelector('.modal-contact-links').style.display = 'block';
+            // Close modal on success
+            if(response.ok) contactModal.classList.remove('active');
+
         }, 8000);
         
     } catch (error) {
@@ -360,6 +394,9 @@ contactForm.addEventListener('submit', async function(e) {
         
         setTimeout(() => {
             errorDiv.remove();
+            // Show form and links again
+            contactForm.style.display = 'block';
+            document.querySelector('.modal-contact-links').style.display = 'block';
         }, 8000);
     } finally {
         // Re-enable submit button
