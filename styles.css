@@ -897,6 +897,93 @@ section {
     transform: translateY(-2px);
 }
 
+.execute-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* TERMINAL MESSAGES */
+.terminal-message {
+    margin: 1.5rem 0;
+    padding: 1rem;
+    border-radius: 8px;
+    font-family: 'Courier New', var(--font-code);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    border: 1px solid;
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.terminal-message.loading {
+    border-color: var(--cyber-blue);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 212, 255, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+}
+
+.terminal-message.success {
+    border-color: var(--primary-green);
+    background: linear-gradient(135deg, rgba(0, 255, 65, 0.15) 0%, rgba(0, 255, 65, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+}
+
+.terminal-message.error {
+    border-color: var(--error-red);
+    background: linear-gradient(135deg, rgba(255, 0, 64, 0.15) 0%, rgba(255, 0, 64, 0.05) 100%);
+    box-shadow: 0 0 20px rgba(255, 0, 64, 0.3);
+}
+
+.terminal-message .status-line {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.3rem;
+}
+
+.terminal-message .status-icon {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+.terminal-message .status-icon.loading {
+    background: var(--cyber-blue);
+    box-shadow: 0 0 10px var(--cyber-blue);
+}
+
+.terminal-message .status-icon.success {
+    background: var(--primary-green);
+    box-shadow: 0 0 10px var(--primary-green);
+}
+
+.terminal-message .status-icon.error {
+    background: var(--error-red);
+    box-shadow: 0 0 10px var(--error-red);
+}
+
+.terminal-message .cmd-prompt {
+    color: var(--primary-green);
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+.terminal-message .cmd-output {
+    margin-left: 1rem;
+    opacity: 0.9;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .contact-info {
     display: flex;
     flex-direction: column;
