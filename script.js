@@ -201,31 +201,171 @@ window.addEventListener('scroll', () => {
 // CONTACT FORM
 const contactForm = document.getElementById('contact-form');
 
-contactForm.addEventListener('submit', function(e) {
+contactForm.addEventListener('submit', async function(e) {
     e.preventDefault();
     
-    // Simulate terminal output
     const terminalBody = contactForm.closest('.terminal-body');
-    const outputDiv = document.createElement('div');
-    outputDiv.className = 'output';
-    outputDiv.innerHTML = `
-        <div style="color: var(--primary-green); margin-top: 1rem;">
-            > Mensaje enviado exitosamente ✓<br>
-            > Conexión establecida...<br>
-            > Estado: DELIVERY_CONFIRMED<br>
-            > Tiempo de respuesta estimado: 24h<br>
+    const submitButton = contactForm.querySelector('.execute-btn');
+    
+    // Show loading message
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'terminal-message loading';
+    loadingDiv.innerHTML = `
+        <div class="status-line">
+            <div class="status-icon loading"></div>
+            <span class="cmd-prompt">C:\\Contact></span>
+            <span>Ejecutando send_message.bat...</span>
+        </div>
+        <div class="status-line">
+            <span style="color: var(--cyber-blue);">[●]</span>
+            <span>Validando campos de entrada</span>
+        </div>
+        <div class="status-line">
+            <span style="color: var(--cyber-blue);">[●]</span>
+            <span>Estableciendo conexión SSL</span>
+        </div>
+        <div class="status-line">
+            <span style="color: var(--cyber-blue);">[●]</span>
+            <span>Procesando mensaje...</span>
         </div>
     `;
+    terminalBody.appendChild(loadingDiv);
     
-    terminalBody.appendChild(outputDiv);
+    // Disable submit button
+    submitButton.disabled = true;
+    submitButton.style.opacity = '0.6';
     
-    // Reset form
-    contactForm.reset();
-    
-    // Remove output after 5 seconds
-    setTimeout(() => {
-        outputDiv.remove();
-    }, 5000);
+    try {
+        // Send form data to Formspree
+        const formData = new FormData(contactForm);
+        const response = await fetch(contactForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+        
+        // Remove loading message
+        loadingDiv.remove();
+        
+        const outputDiv = document.createElement('div');
+        outputDiv.className = 'output';
+        
+        if (response.ok) {
+            // Success message with terminal styling
+            outputDiv.innerHTML = `
+                <div class="terminal-message success">
+                    <div class="message-header">
+                        <span class="status-icon">●</span>
+                        <span class="status-text">OPERACIÓN EXITOSA</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="cmd-line">
+                            <span class="cmd-prompt">C:\\Contact></span>
+                            <span class="cmd-text">validate_connection</span>
+                        </div>
+                        <div class="cmd-output">
+                            [✓] Validación completada<br>
+                            [✓] Conexión establecida<br>
+                            [✓] Mensaje enviado exitosamente
+                        </div>
+                        
+                        <div class="cmd-line">
+                            <span class="cmd-prompt">C:\\Contact></span>
+                            <span class="cmd-text">status</span>
+                        </div>
+                        <div class="cmd-output">
+                            Estado: <span class="highlight">DELIVERY_CONFIRMED</span><br>
+                            Tiempo de respuesta: <span class="warning">~24 horas</span>
+                        </div>
+                        
+                        <div class="cmd-line">
+                            <span class="cmd-prompt">C:\\Contact></span>
+                            <span class="cmd-text">echo "¡Gracias por contactarme!"</span>
+                        </div>
+                        <div class="cmd-output success-text">¡Gracias por contactarme!</div>
+                    </div>
+                </div>
+            `;
+            
+            // Reset form after success
+            contactForm.reset();
+        } else {
+            // Error message with terminal styling
+            outputDiv.innerHTML = `
+                <div class="terminal-message error">
+                    <div class="message-header">
+                        <span class="status-icon">●</span>
+                        <span class="status-text">ERROR DE SISTEMA</span>
+                    </div>
+                    <div class="message-content">
+                        <div class="cmd-line">
+                            <span class="cmd-prompt">C:\\Contact></span>
+                            <span class="cmd-text">send_message</span>
+                        </div>
+                        <div class="cmd-output">
+                            [✗] Error en el envío<br>
+                            Estado: <span class="error-text">DELIVERY_FAILED</span>
+                        </div>
+                        
+                        <div class="cmd-line">
+                            <span class="cmd-prompt">C:\\Contact></span>
+                            <span class="cmd-text">echo "Por favor, intenta nuevamente"</span>
+                        </div>
+                        <div class="cmd-output error-text">Por favor, intenta nuevamente</div>
+                    </div>
+                </div>
+            `;
+        }
+        
+        terminalBody.appendChild(outputDiv);
+        
+        // Remove output after 8 seconds
+        setTimeout(() => {
+            outputDiv.remove();
+        }, 8000);
+        
+    } catch (error) {
+        // Network error
+        loadingDiv.remove();
+        
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'output';
+        errorDiv.innerHTML = `
+            <div class="terminal-message error">
+                <div class="message-header">
+                    <span class="status-icon">●</span>
+                    <span class="status-text">ERROR DE CONEXIÓN</span>
+                </div>
+                <div class="message-content">
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">C:\\Contact></span>
+                        <span class="cmd-text">ping server</span>
+                    </div>
+                    <div class="cmd-output">
+                        [✗] Error de conexión<br>
+                        Estado: <span class="error-text">NETWORK_ERROR</span>
+                    </div>
+                    
+                    <div class="cmd-line">
+                        <span class="cmd-prompt">C:\\Contact></span>
+                        <span class="cmd-text">echo "Verifica tu conexión a internet"</span>
+                    </div>
+                    <div class="cmd-output error-text">Verifica tu conexión a internet</div>
+                </div>
+            </div>
+        `;
+        terminalBody.appendChild(errorDiv);
+        
+        setTimeout(() => {
+            errorDiv.remove();
+        }, 8000);
+    } finally {
+        // Re-enable submit button
+        submitButton.disabled = false;
+        submitButton.style.opacity = '1';
+    }
 });
 
 // INTERSECTION OBSERVER FOR ANIMATIONS
